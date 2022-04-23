@@ -16,6 +16,8 @@
 // keep track of the max length
 // return the max length
 
+// thing to note - this is all going by index!!! so anything that has to do with distinct character is going to be based off on index
+// unless the problem is asking for count, remember to store index as value!!!
 function non_repeat_substring(str) {
   debugger;
   let windowStart = 0,
@@ -25,12 +27,16 @@ function non_repeat_substring(str) {
   for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {
     let char = str[windowEnd];
 
+    // if the map already contains the 'rightChar', shrink the window from the beginning so that
+    // we have only one occurrence of 'rightChar'
     if (char in charMap) {
       // this is tricky; in the current window, we will not have any 'rightChar' after its previous index
       // and if 'windowStart' is already ahead of the last index of 'rightChar', we'll keep 'windowStart'
       windowStart = Math.max(windowStart, charMap[char] + 1);
     } else {
+      // insert the 'char' into the map
       charMap[char] = windowEnd;
+      // remember the maximum length so far
       maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
     }
   }
