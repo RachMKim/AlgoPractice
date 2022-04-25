@@ -49,6 +49,8 @@ function find_averages_of_subarrays(K, arr) {
 6. slide the window
 7. return the result
 */
+
+// Array: [1, 3, 2, 6, -1, 4, 1, 8, 2], K=5
 function find_averages_of_subarrays(K, arr) {
   let result = [],
     windowSum = 0,
@@ -57,6 +59,7 @@ function find_averages_of_subarrays(K, arr) {
   for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
     windowSum += arr[windowEnd];
 
+    // if windowEnd is greater or = 4 -> so we hit our 5 elements!!!!!!!
     if (windowEnd >= K - 1) {
       result.push(windowSum / K);
       windowSum -= arr[windowStart];
