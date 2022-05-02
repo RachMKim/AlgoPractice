@@ -91,9 +91,9 @@ function merge(intervals) {
   let merged = [];
   intervals.sort((a, b) => {
     if (a[0] === b[0]) {
-      a[1] < b[1] ? -1 : 1;
+      return a[1] < b[1] ? -1 : 1;
     } else {
-      a[0] < b[0] ? -1 : 1;
+      return a[0] < b[0] ? -1 : 1;
     }
   });
   let previous = intervals[0];
