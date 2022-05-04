@@ -19,7 +19,6 @@
 // thing to note - this is all going by index!!! so anything that has to do with distinct character is going to be based off on index
 // unless the problem is asking for count, remember to store index as value!!!
 function non_repeat_substring(str) {
-  debugger;
   let windowStart = 0,
     charMap = {},
     maxLength = 0;
